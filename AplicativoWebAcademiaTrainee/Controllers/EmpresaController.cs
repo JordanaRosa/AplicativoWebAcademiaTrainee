@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AplicativoWebAcademiaTrainee.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+
 
 namespace AplicativoWebAcademiaTrainee.Controllers
 {
@@ -22,5 +24,13 @@ namespace AplicativoWebAcademiaTrainee.Controllers
         {
             return View(new Models.EmpresaModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Cadastrar([Bind("Codigo,Nome,NomeFantasia,CNPJ")] EmpresaModel empresaModel)
+        {
+            return View("~/Views/Home/Index.cshtml");
+        }
+
     }
 }
