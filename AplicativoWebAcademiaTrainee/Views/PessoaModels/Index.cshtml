@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<AplicativoWebAcademiaTrainee.Models.PessoaModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Pessoa";
 }
 
-<h1>Index</h1>
+<h1>Pessoa</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Criar novo</a>
 </p>
 <table class="table">
     <thead>
@@ -49,9 +49,9 @@
                 @Html.DisplayFor(modelItem => item.Salario)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Codigo">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Codigo">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Codigo">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Codigo">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Codigo">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Codigo">Deletar</a>
             </td>
         </tr>
 }
