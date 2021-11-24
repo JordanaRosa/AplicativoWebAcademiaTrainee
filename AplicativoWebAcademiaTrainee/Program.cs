@@ -1,9 +1,15 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using AplicativoWebAcademiaTrainee.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+
+builder.Services.AddDbContext<AplicativoWebAcademiaTraineeContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AplicativoWebAcademiaTraineeContext")));
 
 var app = builder.Build();
 
