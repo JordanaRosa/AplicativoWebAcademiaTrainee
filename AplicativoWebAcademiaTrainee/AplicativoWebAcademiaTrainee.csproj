@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Models\PessoaModel.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="wwwroot\imgs\" />
   </ItemGroup>
 
