@@ -8,6 +8,7 @@ namespace AplicativoWebAcademiaTrainee.Models
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
+        [Key]
         public int Codigo { get; set; }
         public string? Nome { get; set; }
         public string? NomeFantasia { get; set; }
