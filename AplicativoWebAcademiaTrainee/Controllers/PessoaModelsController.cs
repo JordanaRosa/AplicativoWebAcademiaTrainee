@@ -54,15 +54,16 @@ namespace AplicativoWebAcademiaTrainee.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Codigo,Nome,Email,DataNascimento,QuantidadeFilhos,Salario")] PessoaModel pessoaModel)
+        public async Task<IActionResult> Create([Bind("Codigo,Nome,Email,DataNascimento,QuantidadeFilhos,Salario,Situacao")] PessoaModel pessoaModel)
         {
-            if (ModelState.IsValid)
-            {
+            // if (ModelState.IsValid)
+            //{
+                pessoaModel.Situacao = "Ativo";
                 _context.Add(pessoaModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            return View(pessoaModel);
+            //}
+            //return View(pessoaModel);
         }
 
         // GET: PessoaModels/Edit/5
@@ -86,7 +87,7 @@ namespace AplicativoWebAcademiaTrainee.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Codigo,Nome,Email,DataNascimento,QuantidadeFilhos,Salario")] PessoaModel pessoaModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Codigo,Nome,Email,DataNascimento,QuantidadeFilhos,Salario,Situacao")] PessoaModel pessoaModel)
         {
             if (id != pessoaModel.Codigo)
             {
