@@ -146,6 +146,24 @@ namespace AplicativoWebAcademiaTrainee.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // GET: PessoaModels/ChangeStatus/5
+        [HttpGet]
+        public async Task<IActionResult> ChangeStatus(int id)
+        {
+            var pessoaModel = await _context.PessoaModel.FindAsync(id);
+            if (pessoaModel.Situacao.Equals("Ativo"))
+            {
+                pessoaModel.Situacao = "Inativo";
+            }
+            else
+            {
+                pessoaModel.Situacao = "Ativo";
+            }
+            _context.Update(pessoaModel);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
         private bool PessoaModelExists(int id)
         {
             return _context.PessoaModel.Any(e => e.Codigo == id);
