@@ -141,7 +141,15 @@ namespace AplicativoWebAcademiaTrainee.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var pessoaModel = await _context.PessoaModel.FindAsync(id);
-            _context.PessoaModel.Remove(pessoaModel);
+
+            if (pessoaModel.Situacao.Equals("Ativo"))
+            {
+                return View(pessoaModel);
+            }
+            else
+            {
+                _context.PessoaModel.Remove(pessoaModel);
+            }
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
