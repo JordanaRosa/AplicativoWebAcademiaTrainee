@@ -1,13 +1,13 @@
 ﻿@model AplicativoWebAcademiaTrainee.Models.PessoaModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes";
 }
 
-<h1>Details</h1>
+<h2>Detalhes</h2>
 
 <div>
-    <h4>PessoaModel</h4>
+
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -49,6 +49,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Codigo">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Codigo" class="btn btn-outline-dark">Editar</a> 
+    <a asp-action="Index" class="btn btn-outline-dark">Voltar para a Lista</a>
 </div>

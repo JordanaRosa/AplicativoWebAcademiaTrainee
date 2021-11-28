@@ -1,13 +1,13 @@
 ﻿@model AplicativoWebAcademiaTrainee.Models.PessoaModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Novo cadastro";
 }
 
-<h1>Create</h1>
+<h2>Novo Cadastro</h2>
 
-<h4>PessoaModel</h4>
 @Html.ValidationSummary()
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -42,16 +42,17 @@
                 <input type="hidden" asp-for="Situacao" class="form-control" value="Ativo" />
                 <span asp-validation-for="Situacao" class="text-danger"></span>
             </div>
+            <p></p>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-outline-dark">Voltar para a Lista</a>
             </div>
         </form>
+
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Voltar para a Lista</a>
-</div>
+
 
 @section Scripts {
     @{

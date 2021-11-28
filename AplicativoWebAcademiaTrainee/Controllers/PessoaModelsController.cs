@@ -57,7 +57,7 @@ namespace AplicativoWebAcademiaTrainee.Controllers
         public async Task<IActionResult> Create([Bind("Codigo,Nome,Email,DataNascimento,QuantidadeFilhos,Salario,Situacao")] PessoaModel pessoaModel)
         {
             pessoaModel.Situacao = "Ativo";
-
+            // REGRAS DE INCLUSÃO
             var pessoasEmail = _context.PessoaModel.Where(x => x.Email.Equals(pessoaModel.Email) && x.Codigo != pessoaModel.Codigo);
             if (pessoasEmail.Count() > 0)
             {
@@ -116,6 +116,7 @@ namespace AplicativoWebAcademiaTrainee.Controllers
             }
             if (ModelState.IsValid)
             {
+                // REGRAS DE EDIÇÃO
                 var pessoasEmail = _context.PessoaModel.Where(x => x.Email.Equals(pessoaModel.Email) && x.Codigo != pessoaModel.Codigo);
                 if (pessoasEmail.Count() > 0)
                 {
@@ -190,6 +191,7 @@ namespace AplicativoWebAcademiaTrainee.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var pessoaModel = await _context.PessoaModel.FindAsync(id);
+            // REGRA DE EXCLUSÃO
             if (pessoaModel.Situacao.Equals("Ativo"))
             {
                 ModelState.AddModelError("Regra de Negócio", "Não é possível excluir uma pessoa na situação 'Ativo'");
